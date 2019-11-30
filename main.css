@@ -1,5 +1,5 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Hind+Madurai|Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hind+Madurai|Questrial|Kaushan+Script&display=swap');
 
 /* Simple Reset */
 * {
@@ -11,6 +11,11 @@
     font-family: 'Questrial', sans-serif;
     font-family: 'Hind Madurai', sans-serif;
 }
+
+/* html, body {
+    height: 100%;
+    width: 100%;
+} */
 
 /* Utils */
 .abs-center {
@@ -26,7 +31,6 @@
     position: absolute;
     top: 0;
     width: 100%;
-    background-color: rgba(61, 17, 0, 0.411);
     height: 75px;
 
     z-index: 999;
@@ -35,41 +39,202 @@
 #navbar .logo {
     position: absolute;
     top: 50%;
-    left: 20px;
+    left: 30px;
     transform: translateY(-50%);
-    height: 100%;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 32px;
+    text-decoration: none;
+    color:#e91d28;
 }
 
 .nav-links {
     display: inline-block;
-    float: right;
-    background-color: orangered;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 125px;
 }
 
 .nav-link {
+    position: relative;
     display: inline-block;
-    background-color: blue;
+    height: 100%;
+    font-size: 22px;
+    line-height: 75px;
+    padding: 0 20px;
+    margin: 0 20px;
+    opacity: 0.8;
+    font-weight: 100;
+    cursor: pointer;
+    transition: 0.1s all ease-in-out;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    cursor: pointer;
+    background-color: rgb(5, 5, 5);
 }
 
 /* header */
 header {
     position: relative;
-    height: 85vh;
+    height: 90vh;
     overflow: hidden;
+    background-color: #000;
 }
 
 .background-vid {
     position: absolute;
     top: 50%;
-    width: 100%;
-    transform: translateY(-50%);
+    left: 50%;
+    height: 100%;
+    transform: translate(-50%, -50%);
 }
 
 .header-text {
-    border: 1px solid red;
     top: 45%;
 }
 
 .header-text h1 {
-    font-size: 62px;
+    font-size: 72px;
+    text-align: center;
+    text-shadow: 0px 0px 2px #000;
 }
+
+.header-text h2 {
+    font-size: 20px;
+    text-align: center;
+    width: 550px;
+    margin: 5px auto;
+    opacity: 0.9;
+    color: #fff;
+    text-shadow: -1px -1px 1px #000;
+    font-weight: 100;
+}
+
+.header-btn {
+    position: relative;
+    top: 55%;
+    display: inline-block;
+    padding: 20px 30px;
+    margin-top: 80px;
+    font-size: 22px;
+    text-shadow: -1px -1px 1px #000;
+    border: 3px solid #e91d28;
+    cursor: pointer;
+    transition: 0.1s all ease-in-out;
+}
+
+.header-btn span {
+    display: inline-block;
+    float: right;
+    color: #e91d28;
+    text-shadow: -1px -1px 1px #000;
+    margin-left: 10px;
+    transition: color 0.2s;
+}
+
+.header-btn:hover span {
+    color: #fff;
+}
+
+.header-btn:active span {
+    color: #e91d28;
+}
+
+.header-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #e91d28;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-btn:hover:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #e91d28;
+    z-index: -1;
+    width: 100%;
+}
+
+.header-btn:active {
+    padding: 25px 35px;
+} 
+
+.header-btn:active:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 0%;
+    width: 0%;
+}
+
+/* Pick the right scene 4 u */
+#scene-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #212121;
+}
+
+.scene {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 50%;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.scene img {
+    display: none;
+}
+
+.scene-left {
+    background-color: #b3b3b3;
+    width: 40%;
+    background-image: url("assets/images/night3.jpg");
+    background-position: left;
+}
+
+.scene-right {
+    background-color: #535353;
+    width: 60%;
+    
+    background-image: url("assets/images/night1.jpg");
+    background-position: right;
+}
+
+.scene-left:hover {
+    width: 60%;
+} 
+
+.scene-left:hover + .scene-right {
+    width: 40%;
+} 
+
+/* Must use js cuz css selectors are **** */
+/* .scene-right:hover {
+    width: 70%;
+} 
+
+.scene-right:hover  .scene:first-of-type {
+    width: 30%;
+}  */
