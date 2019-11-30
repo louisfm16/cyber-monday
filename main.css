@@ -1,0 +1,75 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Hind+Madurai|Questrial&display=swap');
+
+/* Simple Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration-line: none;
+    color: #fff;
+    font-family: 'Questrial', sans-serif;
+    font-family: 'Hind Madurai', sans-serif;
+}
+
+/* Utils */
+.abs-center {
+    display: inline;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Navigation Bar */
+#navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(61, 17, 0, 0.411);
+    height: 75px;
+
+    z-index: 999;
+}
+
+#navbar .logo {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    height: 100%;
+}
+
+.nav-links {
+    display: inline-block;
+    float: right;
+    background-color: orangered;
+}
+
+.nav-link {
+    display: inline-block;
+    background-color: blue;
+}
+
+/* header */
+header {
+    position: relative;
+    height: 85vh;
+    overflow: hidden;
+}
+
+.background-vid {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+.header-text {
+    border: 1px solid red;
+    top: 45%;
+}
+
+.header-text h1 {
+    font-size: 62px;
+}
