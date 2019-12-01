@@ -10,12 +10,13 @@
     color: #fff;
     font-family: 'Questrial', sans-serif;
     font-family: 'Hind Madurai', sans-serif;
+    z-index: 10;
 }
 
-/* html, body {
+html, body {
     height: 100%;
     width: 100%;
-} */
+}
 
 /* Utils */
 .abs-center {
@@ -79,17 +80,18 @@
 /* header */
 header {
     position: relative;
-    height: 90vh;
+    height: 100vh;
     overflow: hidden;
     background-color: #000;
 }
 
 .background-vid {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     height: 100%;
     transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 .header-text {
@@ -182,9 +184,19 @@ header {
 /* Pick the right scene 4 u */
 #scene-container {
     position: relative;
-    height: 100vh;
+    height: 80vh;
     overflow: hidden;
     background-color: #212121;
+}
+
+#scene-container > h1 {
+    position: absolute;
+    width: 100%;
+    top: 35%;
+    text-shadow: 1px 1px 1px #000;
+    font-size: 62px;
+    text-align: center;
+    z-index: 20;
 }
 
 .scene {
@@ -197,44 +209,74 @@ header {
     width: 50%;
     transition: all 0.5s ease-in-out;
     cursor: pointer;
+    overflow: hidden;
+}
 
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-attachment: fixed;
+.scene h2 {
+    position: absolute;
+    display: inline-block;
+    /* width: 100%; */
+    top: 20px;
+    left: 20px;
+    /* transform: translateY(-50%); */
+
+    /* background-color: red;    */
+    /* text-align: center; */
+    font-size: 20px;
+    font-weight: 100;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #000;
+    font-family: 'Questrial', sans-serif;
+}
+
+#scene-right h2 {
+    right: 20px;
+    left: 0;
+    text-align: right;
 }
 
 .scene img {
-    display: none;
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translate(0%, -50%);
+
+    height: 125%;
+    transition: all 0.5s ease-in-out;
 }
 
-.scene-left {
+#scene-left img {
+    left: -10%;
+}
+
+#scene-right img {
+    right: 0;
+}
+
+.scene:hover > img {
+    height: 115%;
+}
+
+#scene-left {
     background-color: #b3b3b3;
-    width: 40%;
-    background-image: url("assets/images/night3.jpg");
-    background-position: left;
 }
 
-.scene-right {
+#scene-right {
     background-color: #535353;
-    width: 60%;
-    
-    background-image: url("assets/images/night1.jpg");
-    background-position: right;
 }
 
-.scene-left:hover {
-    width: 60%;
-} 
+.scene-60 {
+    width: 60% !important;
+}
 
-.scene-left:hover + .scene-right {
+.scene-40 {
     width: 40%;
-} 
+}
 
-/* Must use js cuz css selectors are **** */
-/* .scene-right:hover {
-    width: 70%;
-} 
-
-.scene-right:hover  .scene:first-of-type {
-    width: 30%;
-}  */
+/* Gallery */
+#gallery {
+    position: relative;
+    height: 100vh;
+    background-color: #121212;
+    z-index: 11;
+}
