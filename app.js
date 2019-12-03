@@ -28,4 +28,27 @@ document.addEventListener("DOMContentLoaded", function(){
         this.children[0].classList.add("scene_zoom-out");
         lScene.classList.add("scene-40");
     });
+
+    // Price Drop
+    var galleryContent = document.getElementsByClassName("gallery_panel-content");
+
+    for(var i = 0; i < galleryContent.length; i++) {
+        galleryContent[i].addEventListener("mouseenter", function() {
+            var oldPrice = this.children[2].children[0].innerHTML;
+            var price = this.children[2].children[0];
+            price.innerHTML = price.getAttribute("data-drop");
+            price.setAttribute("data-drop", oldPrice);
+            price.classList.add("gallery_price--amount-green");
+            price.classList.add("gallery_price--anim");
+        });
+
+        galleryContent[i].addEventListener("mouseleave", function() {
+            var oldPrice = this.children[2].children[0].innerHTML;
+            var price = this.children[2].children[0];
+            price.innerHTML = price.getAttribute("data-drop");
+            price.setAttribute("data-drop", oldPrice);
+            price.classList.remove("gallery_price--amount-green");
+            price.classList.remove("gallery_price--anim");
+        });
+    }
 });
