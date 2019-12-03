@@ -701,18 +701,31 @@ header {
 footer {
     position: relative;
     height: 100vh;
-    background-image: url("assets/images/footer.jpg");
+    background-image: url("assets/images/footer3.jpg");
     background-position: center;
     background-size: cover;
     background-color: #121212;
+    overflow: hidden;
+}
+
+footer > .glitch {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 footer > h1 {
     display: inline-block;
-    font-size: 72px;
+    font-size: 80px;
     text-align: center;
-    top: 45%;
+    position: relative;
+    top: 25%;
+    left: 50%;
+    font-family: 'Kaushan Script', cursive;
+    transform: translate(-50%, 0%);
     text-shadow: 2px 2px 5px #000;
+    color: #e91d28;
 }
 
 footer > .link-container {
@@ -720,7 +733,7 @@ footer > .link-container {
     grid-template-columns: 33% 33% 33%;
     justify-items: center;
     position: absolute;
-    bottom: 10%;
+    bottom: 5%;
     left: 50%;
     transform: translate(-50%, 0%);
     width: 90%;
