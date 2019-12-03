@@ -37,7 +37,7 @@ html, body {
     z-index: 999;
 }
 
-#navbar .logo {
+#navbar > .logo {
     position: absolute;
     top: 50%;
     left: 30px;
@@ -98,13 +98,13 @@ header {
     top: 45%;
 }
 
-.header-text h1 {
+.header-text > h1 {
     font-size: 72px;
     text-align: center;
     text-shadow: 0px 0px 2px #000;
 }
 
-.header-text h2 {
+.header-text > h2 {
     font-size: 20px;
     text-align: center;
     width: 550px;
@@ -128,7 +128,7 @@ header {
     transition: 0.1s all ease-in-out;
 }
 
-.header-btn span {
+.header-btn > span {
     display: inline-block;
     float: right;
     color: #e91d28;
@@ -137,11 +137,11 @@ header {
     transition: color 0.2s;
 }
 
-.header-btn:hover span {
+.header-btn:hover > span {
     color: #fff;
 }
 
-.header-btn:active span {
+.header-btn:active > span {
     color: #e91d28;
 }
 
@@ -212,7 +212,7 @@ header {
     overflow: hidden;
 }
 
-.scene h2 {
+.scene > h2 {
     position: absolute;
     display: inline-block;
     top: 20px;
@@ -225,13 +225,13 @@ header {
     font-family: 'Questrial', sans-serif;
 }
 
-#scene-right h2 {
+#scene-right > h2 {
     right: 20px;
     left: 0;
     text-align: right;
 }
 
-.scene img {
+.scene > img {
     position: absolute;
     display: block;
     top: 50%;
@@ -241,11 +241,11 @@ header {
     transition: all 0.5s ease-in-out;
 }
 
-#scene-left img {
+#scene-left > img {
     left: -10%;
 }
 
-#scene-right img {
+#scene-right > img {
     right: 0;
 }
 
@@ -279,7 +279,7 @@ header {
     background-size: cover;
 }
 
-.parallax h1 {
+.parallax > h1 {
     font-size: 62px;
     text-transform: uppercase;
     text-shadow: -2px 2px 5px #000;
@@ -299,17 +299,29 @@ header {
 }
 
 .gallery_panel-content {
+    position: relative;
     width: 100%;
     overflow: hidden;
 }
 
-.gallery_panel-content img {
-    width: 100%;
-    margin: auto;
-    /* position: absolute;
+.gallery_panel-content > img {
+    width: 101%;
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); */
+    transform: translate(-50%, -50%);
+}
+
+.gallery_panel-content > h1 {
+    position: relative;
+    display: block;
+    margin: 20px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 100;
+    font-family: 'Questrial', sans-serif;
+    text-shadow: -1px 1px 1px #000;
+    opacity: 0.9;
 }
 
 .gallery_panel-half {
@@ -326,4 +338,161 @@ header {
 
 .gallery_content-full {
     height: 100%;
+}
+
+.glitch-vars {
+	--color-text: #fff;
+	--color-bg: #000;
+	--color-link: #f9d77e;
+	--color-link-hover: #fff;
+	--color-info: #efc453;
+	--glitch-width: 100vw;
+	--glitch-height: 100vh;
+	--gap-horizontal: 10px;
+	--gap-vertical: 5px;
+	--time-anim: 4s;
+	--delay-anim: 2s;
+	--blend-mode-1: none;
+	--blend-mode-2: none;
+	--blend-mode-3: none;
+	--blend-mode-4: none;
+	--blend-mode-5: overlay;
+	--blend-color-1: transparent;
+	--blend-color-2: transparent;
+	--blend-color-3: transparent;
+	--blend-color-4: transparent;
+	--blend-color-5: #af4949;
+}
+
+.glitch {
+    position: relative;
+	width: 100vw;
+	max-width: 400px;
+	height: 100vh;
+	max-height: calc(400px * 1.25);
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.glitch:hover {
+    cursor: pointer;
+}
+
+.glitch__img {
+    position: absolute;
+	top: calc(-1 * 5px);
+	left: calc(-1 * 10px);
+	width: calc(100% + 10px * 2);
+	height: calc(100% + 5px * 2);
+	background: url("assets/images/shoes.jpg") no-repeat 50% 0;
+	background-color: transparent;
+	background-size: cover;
+	background-blend-mode: none;
+}
+
+/* Set the background colors for the glitch images*/
+.glitch__img:nth-child(2) {
+	background-color: transparent;
+	background-blend-mode: none;
+}
+
+.glitch__img:nth-child(3) {
+	background-color: transparent;
+	background-blend-mode: none;
+}
+
+.glitch__img:nth-child(4) {
+	background-color: transparent;
+	background-blend-mode: none;
+}
+
+.glitch__img:nth-child(5) {
+	background-color: #af4949;
+	background-blend-mode: overlay;
+}
+
+.glitch__img:nth-child(n+2) {
+    opacity: 0;
+}
+
+.glitch:hover .glitch__img:nth-child(n+2) {
+	opacity: 1;
+}
+
+.glitch:hover .glitch__img:nth-child(2) {
+	transform: translate3d(10px,0,0);
+	animation: glitch-anim-1-horizontal 4s infinite linear alternate;
+}
+
+.glitch:hover > .glitch__img:nth-child(3) {
+	transform: translate3d(calc(-1 * 10px),0,0);
+	animation: glitch-anim-2-horizontal 4s infinite linear alternate;
+}
+
+.glitch:hover > .glitch__img:nth-child(4) {
+	transform: translate3d(0, calc(-1 * 5px), 0) scale3d(-1,-1,1);
+	animation: glitch-anim-3-horizontal 4s infinite linear alternate;
+}
+
+/* Hover flash animation on last image */
+.glitch:hover > .glitch__img:nth-child(5) {
+	animation: glitch-anim-flash 0.5s steps(1,end) infinite;
+}
+
+@keyframes glitch-anim-1-horizontal {
+	0% { 
+		-webkit-clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+		clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+	}
+	10% {
+		-webkit-clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+		clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+	}
+	20% {
+		-webkit-clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+		clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+	}
+	30% {
+		-webkit-clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+		clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+	}
+	40% {
+		-webkit-clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+		clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+	}
+	50% {
+		-webkit-clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+		clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+	}
+	60% {
+		-webkit-clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+		clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+	}
+	70% {
+		-webkit-clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+		clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+	}
+	80% {
+		-webkit-clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+		clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+	}
+	90% {
+		-webkit-clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+		clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+	}
+	100% {
+		-webkit-clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+		clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+	}
+}
+
+@keyframes glitch-anim-flash {
+	0% { 
+		opacity: 0.2; 
+		transform: translate3d(10px, 5px, 0);
+	}
+	33%, 100% { 
+		opacity: 0;
+		transform: translate3d(0,0,0);
+	}
 }
